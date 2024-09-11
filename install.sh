@@ -35,12 +35,12 @@ else
     echo "----------Installing Expect----------"
     sudo dnf install -y expect
     echo "----------Moving files to virtual environment----------"
-    cp -i ~/Downloads/OpenFreezeCenter-5/install.sh ~/Desktop/OFC
-    cp -i ~/Downloads/OpenFreezeCenter-5/file_1.sh ~/Desktop/OFC
-    cp -i ~/Downloads/OpenFreezeCenter-5/file_2.sh ~/Desktop/OFC
-    cp -i ~/Downloads/OpenFreezeCenter-5/OFC.py ~/Desktop/OFC
-    cp -i ~/Downloads/OpenFreezeCenter-5/README.md ~/Desktop/OFC
-    cp -i ~/Downloads/OpenFreezeCenter-5/LICENSE ~/Desktop/OFC
+    cp -i ~/Downloads/OpenFreezeCenter-ofc/install.sh ~/Desktop/OFC
+    cp -i ~/Downloads/OpenFreezeCenter-ofc/file_1.sh ~/Desktop/OFC
+    cp -i ~/Downloads/OpenFreezeCenter-ofc/file_2.sh ~/Desktop/OFC
+    cp -i ~/Downloads/OpenFreezeCenter-ofc/OFC.py ~/Desktop/OFC
+    cp -i ~/Downloads/OpenFreezeCenter-ofc/README.md ~/Desktop/OFC
+    cp -i ~/Downloads/OpenFreezeCenter-ofc/LICENSE ~/Desktop/OFC
     FLAG_3=1
 fi
 
