@@ -1,15 +1,17 @@
-#!/usr/bin/expect -f
+#!/bin/bash
 
-spawn nano /etc/modprobe.d/ec_sys.conf
-send "\noptions ec_sys write_support=1\n"
-send "\x1B"         ;# Escape key
-send "\x13"         ;# Ctrl+S
-send "\x0D"         ;# Enter
-send "\x18"         ;# Ctrl+X
-expect {
-    "Save modified buffer*" { send "Y\r" }
-    eof
-}
-send "\x0D"         ;# Enter
-send "\x1B"         ;# Escape key
-expect eof
+# Ensure that the EC system module is loaded with write support enabled.
+if lsmod | grep ec_sys &> /dev/null ; then
+    echo "ec_sys module is already loaded."
+else
+    echo "Loading ec_sys module with write support enabled."
+    sudo modprobe ec_sys write_support=1
+fi
+
+# Add ec_sys to be loaded on boot
+if ! grep -q "ec_sys" /etc/modules-load.d/ec_sys.conf; then
+    echo "ec_sys" | sudo tee -a /etc/modules-load.d/ec_sys.conf > /dev/null
+    echo "ec_sys module added to load on boot."
+fi
+
+echo "EC read/write system preparation complete."
